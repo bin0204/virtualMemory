@@ -1,7 +1,7 @@
 all: virtualMemory
 
-virtualMemory : main.o Disk.o Memory.o PageTable.o PageTableEntry.o ProcessTable.o
-		g++ -c -Wall main.o -o virtualMemory
+virtualMemory : main.o Memory.o PageTable.o PageTableEntry.o ProcessTable.o
+		g++ main.o Memory.o PageTable.o PageTableEntry.o ProcessTable.o -o virtualMemory
 
 main.o: main.cpp
 		g++ -c -Wall main.cpp
@@ -17,10 +17,6 @@ PageTableEntry: PageTableEntry.cpp
 
 ProcessTable: ProcessTable.cpp
 		g++ -c -Wall ProcessTable.cpp
-		
-Disk.o: Disk.cpp
-				g++ -c -Wall Disk.cpp
-
 
 clean:
 		rm -f *.o

@@ -1,13 +1,14 @@
 #include "ProcessTable.h"
+#include "PageTable.h"
 
 void ProcessTable::setProcPT(int pid, PageTable *pt) {
-
+    procPageTable[pid] = pt;
 }
 
-PageTable ProcessTable::*getProcPT(int pid) {
-  return 0;
+PageTable* ProcessTable::getProcPT(int pid) {
+  return procPageTable[pid];
 }
 
-inline ProcessTable::ProcessTable() {
+ProcessTable::ProcessTable() {
 
 }

@@ -1,11 +1,16 @@
+#ifndef PAGETABLENTRY_H
+#define PAGETABLENTRY_H
+
 class PageTableEntry {
   private:
     bool inMemory;
     int frame;
   public:
     int getFrame();
-    bool inMemory();
+    void setFrame(int frame);
+    bool isInMemory();
     void swapToMemory(int memFrame);
     void swapToDisk(int diskFrame);
-    inline PageTableEntry();
+    PageTableEntry();
 };
+#endif

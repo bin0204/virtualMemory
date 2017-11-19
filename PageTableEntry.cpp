@@ -1,21 +1,26 @@
 #include "PageTableEntry.h"
+#include "PageTable.h"
 
 int PageTableEntry::getFrame() {
-  return 0;
+  return frame;
 }
 
-bool PageTableEntry::inMemory() {
-  return false; //or true
+void PageTableEntry::setFrame(int f) {
+  frame = f;
+}
+
+bool PageTableEntry::isInMemory() {
+  return inMemory; //or true
 }
 
 void PageTableEntry::swapToDisk(int diskFrame) {
-
+  inMemory = false;
 }
 
 void PageTableEntry::swapToMemory(int memFrame) {
-
+  inMemory = true;
 }
 
-inline PageTableEntry::PageTableEntry() {
-
+PageTableEntry::PageTableEntry() {
+  frame = 0;
 }
